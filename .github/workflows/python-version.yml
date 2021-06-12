@@ -1,0 +1,22 @@
+# file location and name: .github/workflows/python-version.yml
+
+# name of the workflow
+name: Python version
+# Set trigger policy to push event (when new commit pushed to the repo)
+on: [push]
+# Steps to be executed by the workflow
+jobs:
+  # Set job name
+  check-python-version:
+    # configure os that will be used to test
+    runs-on: ubuntu-latest
+    # define sequence of steps to be executed
+    steps:
+      # Use public 'checkout action' in version v2
+      # to checkout the existing code in the repository
+      - uses: actions/checkout@v2
+      # Use public 'setup-python' action in version v2
+      # to install python on ubuntu based env
+      - uses: actions/setup-python@v2
+      # Executes the 'python --version command'
+      - run: python --version
